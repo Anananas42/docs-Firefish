@@ -1,12 +1,67 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
 
+import { JSX } from 'react';
 import styles from './index.module.css';
+
+type FeatureItem = {
+  title: string;
+  description: JSX.Element;
+  icon: string;
+};
+
+const FeatureList: FeatureItem[] = [
+  {
+    title: 'Bitcoin Borrowing',
+    icon: '🔒',
+    description: (
+      <>
+        Borrow fiat or stablecoins by using your Bitcoin as collateral,
+        without the need to sell your Bitcoin holdings. Access liquidity while maintaining
+        your Bitcoin investment strategy.
+      </>
+    ),
+  },
+  {
+    title: 'Secure Investments',
+    icon: '💰',
+    description: (
+      <>
+        Invest in Bitcoin-backed loans and earn interest on your capital.
+        Your investment is secured by Bitcoin collateral that is always worth more than
+        the loan amount.
+      </>
+    ),
+  },
+  {
+    title: 'Non-Custodial Protocol',
+    icon: '🔐',
+    description: (
+      <>
+        Firefish never touches, trades, or exchanges your Bitcoin collateral.
+        It is securely locked in a smart contract built on top of the Bitcoin network,
+        making the process secure for both borrowers and investors.
+      </>
+    ),
+  },
+];
+
+function Feature({title, description, icon}: FeatureItem) {
+  return (
+    <div className={clsx('col col--4')}>
+      <div className="text--center">
+        <div className={styles.featureIcon}>{icon}</div>
+      </div>
+      <div className="text--center padding-horiz--md">
+        <Heading as="h3">{title}</Heading>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
+}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -20,8 +75,14 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/docs/">
+            Read Documentation
+          </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/docs/faq/general"
+            style={{ marginLeft: '1rem' }}>
+            View FAQ
           </Link>
         </div>
       </div>
@@ -29,15 +90,23 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): ReactNode {
+export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="Documentation for Firefish, a Bitcoin-backed lending platform">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <section className={styles.features}>
+          <div className="container">
+            <div className="row">
+              {FeatureList.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </Layout>
   );
