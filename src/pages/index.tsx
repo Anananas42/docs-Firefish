@@ -76,12 +76,12 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/">
-            Read Documentation
+            Read Docs
           </Link>
           <Link
-            className="button button--outline button--secondary button--lg"
+            className="button button--tertiary button--lg"
             to="/docs/faq/general"
-            style={{ marginLeft: '1rem' }}>
+            style={{ marginLeft: '1rem', border: '1px solid white' }}>
             View FAQ
           </Link>
         </div>
