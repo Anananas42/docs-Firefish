@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Borrowing FAQ
+title: Borrowing
 description: Frequently asked questions about borrowing with Firefish
 ---
 

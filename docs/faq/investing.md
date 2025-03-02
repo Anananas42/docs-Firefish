@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Investing FAQ
+title: Investing
 description: Frequently asked questions about investing with Firefish
 ---
 

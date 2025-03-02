@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
-  title: 'Firefish Documentation',
+  title: 'Firefish Docs',
   tagline: 'Bitcoin-backed lending platform',
   favicon: 'img/favicon.ico',
 
@@ -31,18 +31,23 @@ const config: Config = {
       },
       es: {
         label: 'Español',
+        path: 'es',
       },
       de: {
         label: 'Deutsch',
+        path: 'de',
       },
       it: {
         label: 'Italiano',
+        path: 'it',
       },
       cs: {
         label: 'Česky',
+        path: 'cs',
       },
       'zh-Hant': {
         label: '繁體中文',
+        path: 'zh-hant',
       },
     },
   },
@@ -53,6 +58,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: 'docs',
           // Please change this to your repo.
           editUrl: 'https://github.com/firefish/documentation/tree/main/',
         },
@@ -86,19 +92,14 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docSidebar',  // Make sure this matches the ID in sidebars.ts
           position: 'left',
-          label: 'Documentation',
-        },
-        {
-          to: '/docs/faq/general',
-          label: 'FAQ',
-          position: 'left'
+          label: 'Docs',
         },
         {
           type: 'localeDropdown',
           position: 'right',
         },
         {
-          href: 'https://github.com/firefish/documentation',
+          href: 'https://github.com/Firefish-io',
           label: 'GitHub',
           position: 'right',
         },

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-title: Protocol FAQ
+title: Protocol
 description: Frequently asked questions about the Firefish protocol
 ---
 

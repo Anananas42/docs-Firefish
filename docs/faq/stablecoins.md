@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Stablecoins FAQ
+title: Stablecoins
 description: Frequently asked questions about stablecoin loans on Firefish
 ---
 

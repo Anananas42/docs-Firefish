@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: General FAQ
+title: General
 description: General frequently asked questions about Firefish
 ---
 
