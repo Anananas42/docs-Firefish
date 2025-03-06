@@ -1,7 +1,6 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  // Make sure this ID matches what's referenced in docusaurus.config.ts
   docSidebar: [
     {
       type: 'doc',

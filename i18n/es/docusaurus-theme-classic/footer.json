@@ -40,7 +40,7 @@
     "description": "The label of footer link with label=Main Website linking to https://firefish.io"
   },
   "copyright": {
-    "message": "Copyright © 2025 Firefish. Built with Docusaurus.",
+    "message": "Copyright © 2025 Firefish.",
     "description": "The footer copyright"
   }
 }

@@ -16,7 +16,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Bitcoin Borrowing',
-    icon: '🔒',
+    icon: '🤝',
     description: (
       <>
         Borrow fiat or stablecoins by using your Bitcoin as collateral,

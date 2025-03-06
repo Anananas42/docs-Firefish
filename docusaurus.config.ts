@@ -59,7 +59,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          // Please change this to your repo.
           editUrl: 'https://github.com/firefish/documentation/tree/main/',
         },
         blog: {
@@ -68,7 +67,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
           editUrl: 'https://github.com/firefish/documentation/tree/main/',
         },
         theme: {
@@ -79,10 +77,9 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/firefish-social-card.jpg',
     navbar: {
-      title: 'Firefish',
+      title: 'Firefish Docs',
       logo: {
         alt: 'Firefish Logo',
         src: 'img/logo512.png',
@@ -90,7 +87,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'docSidebar',  // Make sure this matches the ID in sidebars.ts
+          sidebarId: 'docSidebar',
           position: 'left',
           label: 'Docs',
         },
@@ -157,7 +154,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Firefish. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Firefish.`,
     },
     prism: {
       theme: prismThemes.github,
