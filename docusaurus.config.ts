@@ -7,14 +7,12 @@ const config: Config = {
   tagline: 'Bitcoin-backed lending platform',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://docs.firefish.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  url: 'https://anananas42.github.io',
+  baseUrl: '/docs-Firefish/',
 
-  // GitHub pages deployment config.
-  organizationName: 'firefish', 
-  projectName: 'documentation',
+  organizationName: 'Anananas42',
+  projectName: 'docs-Firefish',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -59,7 +57,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/firefish/documentation/tree/main/',
+          editUrl: 'https://github.com/Anananas42/docs-Firefish/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -67,7 +65,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/firefish/documentation/tree/main/',
+          editUrl: 'https://github.com/Anananas42/docs-Firefish/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
