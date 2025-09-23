@@ -18,13 +18,31 @@ const sidebars: SidebarsConfig = {
         'how-it-works/loan-actions-menu',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'FAQ',
-    //   items: [
-    //     // Items will be added here
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: 'FAQ',
+      items: [
+        'faq/general',
+        {
+          type: 'category',
+          label: 'Borrowing & Locking Bitcoin',
+          link: {
+            type: 'doc',
+            id: 'faq/borrowing-and-locking',
+          },
+          items: [
+            'faq/borrowing/general',
+            'faq/borrowing/bitcoin',
+            'faq/borrowing/collateral',
+            'faq/borrowing/receiving-loans',
+            'faq/borrowing/repaying-loans',
+          ],
+        },
+        'faq/investing',
+        'faq/stablecoins',
+        'faq/protocol',
+      ],
+    },
     // {
     //   type: 'category',
     //   label: 'Firefish Protocol',
