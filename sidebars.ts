@@ -51,20 +51,40 @@ const sidebars: SidebarsConfig = {
       id: 'firefish-protocol',
       label: 'Firefish Protocol',
     },
-    // {
-    //   type: 'category',
-    //   label: 'Media & Insights',
-    //   items: [
-    //     // Items will be added here
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Legal',
-    //   items: [
-    //     // Items will be added here
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: 'Media & Insights',
+      link: {
+        type: 'doc',
+        id: 'media-insights',
+      },
+      items: [
+        'media-insights/english',
+        'media-insights/german',
+        'media-insights/czech-slovak',
+        'media-insights/spanish',
+        'media-insights/italian',
+        'media-insights/dutch',
+        'media-insights/french',
+        'media-insights/hungarian',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Legal',
+      link: {
+        type: 'doc',
+        id: 'legal',
+      },
+      items: [
+        'legal/privacy-policy',
+        'legal/cookie-policy',
+        'legal/terms-of-service',
+        'legal/fiat-supported-countries',
+        'legal/ineligible-countries',
+        'legal/legacy-documents',
+      ],
+    },
   ],
 };
 
