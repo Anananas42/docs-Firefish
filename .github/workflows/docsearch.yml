@@ -8,15 +8,11 @@ on:
       - completed
   # Allow manual trigger
   workflow_dispatch:
-  # Also run when deployment branch is pushed (backup trigger)
-  push:
-    branches:
-      - deployment
 
 jobs:
   algolia-index:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Checkout repository
