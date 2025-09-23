@@ -3,58 +3,52 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docSidebar: [
     {
-      type: 'doc',
-      id: 'intro',
-      label: 'Introduction',
-    },
-    {
       type: 'category',
-      label: 'User Guide',
+      label: 'How it works',
+      link: {
+        type: 'doc',
+        id: 'how-it-works',
+      },
       items: [
-        'guide/getting-started',
-        'guide/borrowing',
-        'guide/investing',
-        'guide/stablecoins',
+        'how-it-works/what-is-firefish',
+        'how-it-works/how-to-borrow',
+        'how-it-works/how-to-invest',
+        'how-it-works/liquidations',
+        'how-it-works/early-repayment',
+        'how-it-works/top-up-collateral',
+        'how-it-works/loan-rollover',
+        'how-it-works/watchdog-setup',
+        'how-it-works/loan-actions-menu',
       ],
     },
-    {
-      type: 'category',
-      label: 'FAQ',
-      items: [
-        'faq/general',
-        'faq/borrowing',
-        'faq/investing',
-        'faq/stablecoins',
-        'faq/protocol',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Protocol',
-      items: [
-        'protocol/overview',
-        'protocol/security-model',
-        'protocol/liquidation',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Legal',
-      items: [
-        'legal/terms',
-        'legal/privacy',
-        'legal/fiat-supported-countries',
-        'legal/ineligible-countries',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Resources',
-      items: [
-        'videos/tutorials',
-        'media/press',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'FAQ',
+    //   items: [
+    //     // Items will be added here
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Firefish Protocol',
+    //   items: [
+    //     // Items will be added here
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Media & Insights',
+    //   items: [
+    //     // Items will be added here
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Legal',
+    //   items: [
+    //     // Items will be added here
+    //   ],
+    // },
   ],
 };
 
