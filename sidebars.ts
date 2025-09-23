@@ -46,13 +46,11 @@ const sidebars: SidebarsConfig = {
         'faq/protocol',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Firefish Protocol',
-    //   items: [
-    //     // Items will be added here
-    //   ],
-    // },
+    {
+      type: 'doc',
+      id: 'firefish-protocol',
+      label: 'Firefish Protocol',
+    },
     // {
     //   type: 'category',
     //   label: 'Media & Insights',
