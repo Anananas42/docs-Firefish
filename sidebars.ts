@@ -85,6 +85,11 @@ const sidebars: SidebarsConfig = {
         'legal/legacy-documents',
       ],
     },
+    {
+      type: 'doc',
+      id: 'support',
+      label: 'Support',
+    },
   ],
 };
 

@@ -90,11 +90,6 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/support',
-          label: 'Support',
-          position: 'left',
-        },
-        {
           type: 'localeDropdown',
           position: 'right',
         },
