@@ -3,11 +3,15 @@ name: DocSearch Indexing
 on:
   # Run after successful GitHub Pages deployment
   workflow_run:
-    workflows: ["pages-build-deployment"]
+    workflows: ["Deploy to GitHub Pages"]
     types:
       - completed
   # Allow manual trigger
   workflow_dispatch:
+  # Also run when deployment branch is pushed (backup trigger)
+  push:
+    branches:
+      - deployment
 
 jobs:
   algolia-index:
