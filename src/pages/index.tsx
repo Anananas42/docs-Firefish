@@ -15,8 +15,8 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Bitcoin Borrowing',
-    icon: '🤝',
+    title: 'Borrow with Bitcoin',
+    icon: '',
     description: (
       <>
         Borrow fiat or stablecoins by using your Bitcoin as collateral,
@@ -26,8 +26,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Secure Investments',
-    icon: '💰',
+    title: 'Invest securely',
+    icon: '',
     description: (
       <>
         Invest in Bitcoin-backed loans and earn interest on your capital.
@@ -37,8 +37,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Non-Custodial Protocol',
-    icon: '🔐',
+    title: 'Non-custodial protocol',
+    icon: '',
     description: (
       <>
         Firefish never touches, trades, or exchanges your Bitcoin collateral.
@@ -75,8 +75,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/">
-            Read Docs
+            to="/docs/how-it-works">
+            Get Started
           </Link>
           <Link
             className="button button--tertiary button--lg"

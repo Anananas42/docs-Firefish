@@ -112,16 +112,20 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
-              to: '/docs/',
+              label: 'How it works',
+              to: '/docs/how-it-works',
             },
             {
               label: 'FAQ',
               to: '/docs/faq/general',
             },
             {
-              label: 'Protocol',
-              to: '/docs/protocol/overview',
+              label: 'Firefish Protocol',
+              to: '/docs/firefish-protocol',
+            },
+            {
+              label: 'Support',
+              to: '/docs/support',
             },
           ],
         },
@@ -130,24 +134,28 @@ const config: Config = {
           items: [
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/firefish',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/firefish',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/firefish/documentation',
+              href: 'https://discord.com/invite/7dbKKaQxH3',
             },
             {
               label: 'Main Website',
               href: 'https://firefish.io',
+            },
+          ],
+        },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Legal Overview',
+              to: '/docs/legal',
+            },
+            {
+              label: 'Media & Insights',
+              to: '/docs/media-insights',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/Firefish-io',
             },
           ],
         },

@@ -3,18 +3,22 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docSidebar: [
     {
-      type: 'doc',
-      id: 'intro',
-      label: 'Introduction',
-    },
-    {
       type: 'category',
-      label: 'User Guide',
+      label: 'How it works',
+      link: {
+        type: 'doc',
+        id: 'how-it-works',
+      },
       items: [
-        'guide/getting-started',
-        'guide/borrowing',
-        'guide/investing',
-        'guide/stablecoins',
+        'how-it-works/what-is-firefish',
+        'how-it-works/how-to-borrow',
+        'how-it-works/how-to-invest',
+        'how-it-works/liquidations',
+        'how-it-works/early-repayment',
+        'how-it-works/top-up-collateral',
+        'how-it-works/loan-rollover',
+        'how-it-works/watchdog-setup',
+        'how-it-works/loan-actions-menu',
       ],
     },
     {
@@ -22,38 +26,69 @@ const sidebars: SidebarsConfig = {
       label: 'FAQ',
       items: [
         'faq/general',
-        'faq/borrowing',
+        {
+          type: 'category',
+          label: 'Borrowing & Locking Bitcoin',
+          link: {
+            type: 'doc',
+            id: 'faq/borrowing-and-locking',
+          },
+          items: [
+            'faq/borrowing/general',
+            'faq/borrowing/bitcoin',
+            'faq/borrowing/collateral',
+            'faq/borrowing/receiving-loans',
+            'faq/borrowing/repaying-loans',
+          ],
+        },
         'faq/investing',
         'faq/stablecoins',
         'faq/protocol',
       ],
     },
     {
+      type: 'doc',
+      id: 'firefish-protocol',
+      label: 'Firefish Protocol',
+    },
+    {
       type: 'category',
-      label: 'Protocol',
+      label: 'Media & Insights',
+      link: {
+        type: 'doc',
+        id: 'media-insights',
+      },
       items: [
-        'protocol/overview',
-        'protocol/security-model',
-        'protocol/liquidation',
+        'media-insights/english',
+        'media-insights/german',
+        'media-insights/czech-slovak',
+        'media-insights/spanish',
+        'media-insights/italian',
+        'media-insights/dutch',
+        'media-insights/french',
+        'media-insights/hungarian',
       ],
     },
     {
       type: 'category',
       label: 'Legal',
+      link: {
+        type: 'doc',
+        id: 'legal',
+      },
       items: [
-        'legal/terms',
-        'legal/privacy',
+        'legal/privacy-policy',
+        'legal/cookie-policy',
+        'legal/terms-of-service',
         'legal/fiat-supported-countries',
         'legal/ineligible-countries',
+        'legal/legacy-documents',
       ],
     },
     {
-      type: 'category',
-      label: 'Resources',
-      items: [
-        'videos/tutorials',
-        'media/press',
-      ],
+      type: 'doc',
+      id: 'support',
+      label: 'Support',
     },
   ],
 };
