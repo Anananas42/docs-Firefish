@@ -81,11 +81,11 @@ There are two ways for matching Borrowers with Investors:
 
 ### Where is Firefish available at this moment?
 
-Please refer to the following links to see the list of countries [eligible for fiat transactions](/legal/fiat-supported-countries) and [restricted countries](/legal/ineligible-countries).
+Please refer to the following links to see the list of countries [eligible for fiat transactions](/docs/legal/fiat-supported-countries) and [restricted countries](/docs/legal/ineligible-countries).
 
 ### Which countries are eligible for fiat transactions on the Firefish platform?
 
-Please refer to the following links to see the list of countries [eligible for fiat transactions](/legal/fiat-supported-countries) and [restricted countries](/legal/ineligible-countries).
+Please refer to the following links to see the list of countries [eligible for fiat transactions](/docs/legal/fiat-supported-countries) and [restricted countries](/docs/legal/ineligible-countries).
 
 ### Do you accept collateral other than Bitcoin?
 
