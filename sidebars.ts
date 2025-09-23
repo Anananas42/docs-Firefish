@@ -5,8 +5,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'How it works',
+      link: {
+        type: 'doc',
+        id: 'how-it-works',
+      },
       items: [
-        'how-it-works',
         'how-it-works/what-is-firefish',
         'how-it-works/how-to-borrow',
         'how-it-works/how-to-invest',
