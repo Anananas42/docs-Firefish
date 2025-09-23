@@ -81,6 +81,14 @@ const config: Config = {
         content: '199DC04FB859E1F7',
       },
     ],
+    algolia: {
+      appId: '68W48A2WHL',
+      apiKey: '5c5ba67215c57c58f555c068890f029b',
+      indexName: 'firefish-docs',
+      contextualSearch: true,
+      searchParameters: {},
+      searchPagePath: 'search',
+    },
     image: 'img/firefish-social-card.jpg',
     navbar: {
       title: 'Firefish Docs',
