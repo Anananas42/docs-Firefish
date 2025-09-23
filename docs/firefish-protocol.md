@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Firefish Protocol
 
-> This document outlines the technical design of the Firefish Protocol. Please note that the actual implementation—delivered through the Firefish application—may differ in certain aspects, as both the application and the underlying escrow system remain under active development. For the most accurate and up-to-date information on the current functionality and limitations of the Firefish Protocol, please refer to the [Terms of Use](/legal/terms).
+> This document outlines the technical design of the Firefish Protocol. Please note that the actual implementation—delivered through the Firefish application—may differ in certain aspects, as both the application and the underlying escrow system remain under active development. For the most accurate and up-to-date information on the current functionality and limitations of the Firefish Protocol, please refer to the [Terms of Service](/docs/legal/terms-of-service).
 
 :::info Key Features
 🔥 The Firefish Protocol enables the escrow of Bitcoin for peer-to-peer collateralized loans settled in fiat currency
