@@ -2,7 +2,7 @@
 sidebar_label: Borrowing & Locking Bitcoin
 ---
 
-# Borrowing & Locking Bitcoin FAQ
+# Borrowing & Locking Bitcoin
 
 Comprehensive information about borrowing against your Bitcoin collateral, the technical aspects of Bitcoin locking, and managing your loans.
 

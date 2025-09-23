@@ -2,7 +2,7 @@
 sidebar_label: Firefish Protocol
 ---
 
-# Firefish Protocol FAQ
+# Firefish Protocol
 
 ### What is Firefish protocol?
 

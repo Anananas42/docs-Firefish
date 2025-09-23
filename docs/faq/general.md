@@ -2,7 +2,7 @@
 sidebar_label: General
 ---
 
-# General FAQ
+# General
 
 ### What is Firefish?
 

@@ -2,7 +2,7 @@
 sidebar_label: Repaying Loans
 ---
 
-# Repaying Loans FAQ
+# Repaying Loans
 
 ### How should I return the loan?
 

@@ -2,7 +2,7 @@
 sidebar_label: Collateral
 ---
 
-# Collateral FAQ
+# Collateral
 
 ### How do I know if I have enough collateral?
 

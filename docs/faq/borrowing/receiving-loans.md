@@ -2,7 +2,7 @@
 sidebar_label: Receiving Loans
 ---
 
-# Receiving Loans FAQ
+# Receiving Loans
 
 ### When will I receive funds from the Investor?
 

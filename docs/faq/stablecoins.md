@@ -2,7 +2,7 @@
 sidebar_label: Stablecoins
 ---
 
-# Stablecoins FAQ
+# Stablecoins
 
 ### How are stablecoin loans defined?
 

@@ -2,7 +2,7 @@
 sidebar_label: Investing in Bitcoin-backed Loans
 ---
 
-# Investing in Bitcoin-backed Loans FAQ
+# Investing in Bitcoin-backed Loans
 
 ### What is Firefish Invest?
 

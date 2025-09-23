@@ -2,7 +2,7 @@
 sidebar_label: Bitcoin
 ---
 
-# Bitcoin FAQ
+# Bitcoin
 
 ### What happens to my Bitcoin?
 

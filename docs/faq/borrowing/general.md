@@ -2,7 +2,7 @@
 sidebar_label: General
 ---
 
-# General Borrowing FAQ
+# General Borrowing
 
 ### What is Firefish Borrow?
 
