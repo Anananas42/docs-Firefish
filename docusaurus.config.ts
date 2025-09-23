@@ -75,6 +75,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {
+        name: 'algolia-site-verification',
+        content: '199DC04FB859E1F7',
+      },
+    ],
     image: 'img/firefish-social-card.jpg',
     navbar: {
       title: 'Firefish Docs',
