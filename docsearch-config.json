@@ -1,0 +1,42 @@
+{
+  "index_name": "firefish-docs",
+  "start_urls": [
+    "https://anananas42.github.io/docs-Firefish/"
+  ],
+  "sitemap_urls": [
+    "https://anananas42.github.io/docs-Firefish/sitemap.xml"
+  ],
+  "sitemap_alternate_links": true,
+  "stop_urls": [],
+  "selectors": {
+    "lvl0": {
+      "selector": ".menu__link--sublist.menu__link--active, .navbar__item.navbar__link--active",
+      "default_value": "Documentation"
+    },
+    "lvl1": "header h1, article h1",
+    "lvl2": "article h2",
+    "lvl3": "article h3",
+    "lvl4": "article h4",
+    "lvl5": "article h5, article td:first-child",
+    "lvl6": "article h6",
+    "text": "article p, article li, article td:last-child"
+  },
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor"
+    ]
+  },
+  "conversation_id": [
+    "firefish-docs"
+  ],
+  "nb_hits": 46250
+}
