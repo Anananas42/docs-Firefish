@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>Firefish Docs</ShortName>
-  <Description>Search Firefish Docs</Description>
+  <ShortName>Firefish Resources</ShortName>
+  <Description>Search Firefish Resources</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://anananas42.github.io/docs-Firefish/img/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://anananas42.github.io/docs-Firefish/search?q={searchTerms}"/>
