@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
-  title: 'Firefish Docs',
+  title: 'Firefish Resources',
   tagline: 'Bitcoin-backed lending platform',
   favicon: 'img/favicon.ico',
 
