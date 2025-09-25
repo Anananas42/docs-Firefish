@@ -91,7 +91,7 @@ const config: Config = {
     },
     image: 'img/firefish-social-card.jpg',
     navbar: {
-      title: 'Firefish Docs',
+      title: 'Firefish Resources',
       logo: {
         alt: 'Firefish Logo',
         src: 'img/logo512.png',
