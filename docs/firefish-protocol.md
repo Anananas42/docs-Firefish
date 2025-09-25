@@ -67,11 +67,11 @@ The Borrower uses two types of keys within the protocol:
 
 To make it practical for Borrowers who use a variety of bitcoin infrastructure (hardware wallets, software wallets, custodial wallets), we propose using an extra on-chain transaction to consolidate and acknowledge the UTXOs that will be used to fund the escrow contract.
 
-The extra on-chain transaction, called prefund transaction ($tx_{prefund}$), precedes the escrow transaction and can be schematically depicted as follows:
+The extra on-chain transaction, called prefund transaction ($tx_{\text{prefund}}$), precedes the escrow transaction and can be schematically depicted as follows:
 
 TODO
 
-This construct makes it easy for Borrowers to interact with the Firefish protocol. First, they send their bitcoin collateral to a specific prefund address ($A_{prefund}$), which allows to create the follow-up escrow and closing transactions. 
+This construct makes it easy for Borrowers to interact with the Firefish protocol. First, they send their bitcoin collateral to a specific prefund address ($A_{\text{prefund}}$), which allows to create the follow-up escrow and closing transactions. 
 
 The prefund address represents the following spending condition:
 
