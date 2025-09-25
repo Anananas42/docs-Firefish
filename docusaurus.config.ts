@@ -99,9 +99,27 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'docSidebar',
+          sidebarId: 'knowledgeHubSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Knowledge Hub',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'mediaInsightsSidebar',
+          position: 'left',
+          label: 'Media & Insights',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'legalSidebar',
+          position: 'left',
+          label: 'Legal',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'supportSidebar',
+          position: 'left',
+          label: 'Support',
         },
         {
           type: 'localeDropdown',

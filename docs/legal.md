@@ -1,9 +1,9 @@
 ---
 sidebar_position: 5
-sidebar_label: Legal
+sidebar_label: Overview
 ---
 
-# Legal Documentation
+# Overview
 
 Access all legal documents, policies, and agreements related to using the Firefish platform.
 

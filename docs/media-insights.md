@@ -1,9 +1,9 @@
 ---
 sidebar_position: 4
-sidebar_label: Media & Insights
+sidebar_label: Overview
 ---
 
-# Media & Insights
+# Overview
 
 Discover how Firefish has been featured across global media, from podcasts and interviews to detailed reviews and educational content. Our platform has gained recognition across multiple languages and regions.
 

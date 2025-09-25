@@ -1,7 +1,12 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  docSidebar: [
+  knowledgeHubSidebar: [
+    {
+      type: 'doc',
+      id: 'how-it-works/what-is-firefish',
+      label: 'What is Firefish?',
+    },
     {
       type: 'category',
       label: 'How it works',
@@ -10,7 +15,6 @@ const sidebars: SidebarsConfig = {
         id: 'how-it-works',
       },
       items: [
-        'how-it-works/what-is-firefish',
         'how-it-works/how-to-borrow',
         'how-it-works/how-to-invest',
         'how-it-works/liquidations',
@@ -20,6 +24,11 @@ const sidebars: SidebarsConfig = {
         'how-it-works/watchdog-setup',
         'how-it-works/loan-actions-menu',
       ],
+    },
+    {
+      type: 'doc',
+      id: 'firefish-protocol',
+      label: 'Firefish Protocol',
     },
     {
       type: 'category',
@@ -45,46 +54,37 @@ const sidebars: SidebarsConfig = {
         'faq/stablecoins',
         'faq/protocol',
       ],
-    },
+    }
+  ],
+  mediaInsightsSidebar: [
     {
       type: 'doc',
-      id: 'firefish-protocol',
-      label: 'Firefish Protocol',
+      id: 'media-insights',
+      label: 'Overview',
     },
+    'media-insights/english',
+    'media-insights/german',
+    'media-insights/czech-slovak',
+    'media-insights/spanish',
+    'media-insights/italian',
+    'media-insights/dutch',
+    'media-insights/french',
+    'media-insights/hungarian',
+  ],
+  legalSidebar: [
     {
-      type: 'category',
-      label: 'Media & Insights',
-      link: {
-        type: 'doc',
-        id: 'media-insights',
-      },
-      items: [
-        'media-insights/english',
-        'media-insights/german',
-        'media-insights/czech-slovak',
-        'media-insights/spanish',
-        'media-insights/italian',
-        'media-insights/dutch',
-        'media-insights/french',
-        'media-insights/hungarian',
-      ],
+      type: 'doc',
+      id: 'legal',
+      label: 'Overview',
     },
-    {
-      type: 'category',
-      label: 'Legal',
-      link: {
-        type: 'doc',
-        id: 'legal',
-      },
-      items: [
-        'legal/privacy-policy',
-        'legal/cookie-policy',
-        'legal/terms-of-service',
-        'legal/fiat-supported-countries',
-        'legal/ineligible-countries',
-        'legal/legacy-documents',
-      ],
-    },
+    'legal/privacy-policy',
+    'legal/cookie-policy',
+    'legal/terms-of-service',
+    'legal/fiat-supported-countries',
+    'legal/ineligible-countries',
+    'legal/legacy-documents',
+  ],
+  supportSidebar: [
     {
       type: 'doc',
       id: 'support',
