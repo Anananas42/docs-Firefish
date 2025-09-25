@@ -85,7 +85,7 @@ Once the Bitcoin is locked into prefund, all information is known to create the 
 
 ## Protocol Implementation
 
-The whole Firefish protocol is implemented in Rust. To simplify the interaction with the protocol for Borrowers, the Borrower’s part, called borrower-client, is compiled into WASM and runs at app.firefish.io. The source code for the borrower-client is available HERE. It also contains instructions for deterministic builds, allowing Borrowers to verify that the client used at [Firefish](app.firefish.io) corresponds to the published source code. 
+The whole Firefish protocol is implemented in Rust. To simplify the interaction with the protocol for Borrowers, the Borrower's part, called borrower-client, is compiled into WASM and runs at app.firefish.io. The source code for the borrower-client is available HERE. It also contains instructions for deterministic builds, allowing Borrowers to verify that the client used at [Firefish](https://app.firefish.io) corresponds to the published source code. 
 
 ## The Process
 
