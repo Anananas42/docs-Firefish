@@ -60,11 +60,11 @@ There are at total five closing transactions:
 
 | Loan outcome | Closing transaction | Missing signature | Output to | Timelock | 
 | --- | --- | --- | --- | --- |
-| Repayment | tx<sub>repayment</sub> | Payment Oracle | Borrower| none |
+| Repayment | tx<sub>repayment</sub> | Payment Oracle | Borrower| - |
 | Default | tx<sub>default</sub> | Payment Oracle | Liquidator | maturity date |
-| Liquidation | tx<sub>liquidation</sub> | Price Oracle, Payment Oracle | Lender/Liquidator | none |
-| Cancellation | tx<sub>repayment</sub> | Payment Oracle | Borrower| none |
-| Disaster | tx<sub>recover</sub> | none | Borrower| maturity date + 1 month |
+| Liquidation | tx<sub>liquidation</sub> | Price Oracle, Payment Oracle | Lender/Liquidator | - |
+| Cancellation | tx<sub>repayment</sub> | Payment Oracle | Borrower| - |
+| Disaster | tx<sub>recover</sub> | - | Borrower| maturity date + 1 month |
 
 ## Prefund Contract
 
