@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Firefish Resources" href="/docs-Firefish/opensearch.xml"><link rel="stylesheet" href="/docs-Firefish/assets/css/styles.d97df58c.css">
-<script src="/docs-Firefish/assets/js/runtime~main.70d1c10f.js" defer="defer"></script>
+<script src="/docs-Firefish/assets/js/runtime~main.474862a3.js" defer="defer"></script>
 <script src="/docs-Firefish/assets/js/main.867ddcc5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -34,37 +34,37 @@
 <ul>
 <li><strong>Repayment</strong>
 <ul>
-<li>Description: Loan successfully repaid</li>
-<li>Result: All bitcoin collateral is returned to the Borrower</li>
-<li>Trigger: Payment-oracle</li>
+<li><strong>Description:</strong> Loan successfully repaid</li>
+<li><strong>Result:</strong> All bitcoin collateral is returned to the Borrower</li>
+<li><strong>Trigger:</strong> Payment-oracle</li>
 </ul>
 </li>
 <li><strong>Default</strong>
 <ul>
-<li>Description: Loan not successfully repaid</li>
-<li>Result: Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower</li>
-<li>Trigger: Price-oracle</li>
+<li><strong>Description:</strong> Loan not successfully repaid</li>
+<li><strong>Result:</strong> Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower</li>
+<li><strong>Trigger:</strong> Price-oracle</li>
 </ul>
 </li>
 <li><strong>Liquidation</strong>
 <ul>
-<li>Description: Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value</li>
-<li>Result: All bitcoin collateral is sent to Lender (for self-liquidation) or Liaquidator (for Firefish liquidation)</li>
-<li>Trigger: Price-oracle and Payment-oracle</li>
+<li><strong>Description:</strong> Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value</li>
+<li><strong>Result:</strong> All bitcoin collateral is sent to Lender (for self-liquidation) or Liaquidator (for Firefish liquidation)</li>
+<li><strong>Trigger:</strong> Price-oracle and Payment-oracle</li>
 </ul>
 </li>
 <li><strong>Cancellation</strong>
 <ul>
-<li>Description: Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower</li>
-<li>Result: All bitcoin collateral is returned to the Borrower</li>
-<li>Trigger: Payment-oracle</li>
+<li><strong>Description:</strong> Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower</li>
+<li><strong>Result:</strong> All bitcoin collateral is returned to the Borrower</li>
+<li><strong>Trigger:</strong> Payment-oracle</li>
 </ul>
 </li>
 <li><strong>Disaster</strong>
 <ul>
-<li>Description: Oracles are not responsive</li>
-<li>Result: Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction</li>
-<li>Trigger: Borrower</li>
+<li><strong>Description:</strong> Oracles are not responsive</li>
+<li><strong>Result:</strong> Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction</li>
+<li><strong>Trigger:</strong> Borrower</li>
 </ul>
 </li>
 </ul>
