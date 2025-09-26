@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Firefish Protocol
 
-> This document outlines the technical design of the Firefish Protocol. Please note that the actual implementation—delivered through the Firefish application—may differ in certain aspects, as both the application and the underlying escrow system remain under active development. For the most accurate and up-to-date information on the current functionality and limitations of the Firefish Protocol, please refer to the [Terms of Service](/docs/legal/terms-of-service).
+> This document outlines the technical design of the Firefish Protocol. Please note that the actual implementation—delivered through [Firefish platform](https://app.firefish.io)—may differ in certain aspects, as both the platform and the underlying escrow system remain under active development. For the most accurate and up-to-date information on the current functionality and limitations of the Firefish Protocol, please refer to the [Terms of Service](/docs/legal/terms-of-service).
 
 ## Participants in Firefish Protocol
 - **Borrower:** An individual or entity that owns bitcoin and seeks fiat or stablecoins liquidity.
@@ -16,51 +16,34 @@ sidebar_position: 3
 
 
 ## Loan outcomes
-- **Repayment**
-  - **Description:** Loan successfully repaid
-  - **Result:** All bitcoin collateral is returned to the Borrower
-  - **Trigger:** Payment-oracle
-- **Default**
-  - **Description:** Loan not successfully repaid
-  - **Result:** Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower
-  - **Trigger:** Price-oracle
-- **Liquidation** 
-  - **Description:** Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value
-  - **Result:** All bitcoin collateral is sent to Lender (for self-liquidation) or Liquidator (for Firefish liquidation)
-  - **Trigger:** Price-oracle and Payment-oracle
-- **Cancellation**
-  - **Description:** Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower
-  - **Result:** All bitcoin collateral is returned to the Borrower
-  - **Trigger:** Payment-oracle
-- **Disaster** 
-  - **Description:** Oracles are not responsive
-  - **Result:** Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction
-  - **Trigger:** Borrower
+Below is a table of possible outcomes of the loan including (i) outcome defintion (Description), (ii) who decides that the outcome hapenned (Trigger), and (iii) what happens to bitcoin collateral for that outcome (Result).
 
  | Loan outcome | Description | Result | Trigger | 
 | :--- | :--- | :--- | :--- |
 | Repayment | Loan successfully repaid | All bitcoin collateral is returned to the Borrower | Payment‑oracle |
-| Default | Loan not successfully repaid | Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower | Price‑oracle | 
-| Liquidation | Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value | All bitcoin collateral is sent to Lender (for self-liquidation) or Liquidator (for Firefish liquidation) | Price‑oracle and Payment‑oracle |
+| Default | Loan not successfully repaid | Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self‑managed liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower | Price‑oracle | 
+| Liquidation | Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value | All bitcoin collateral is sent to Lender (for self‑managed liquidation) or Liquidator (for Firefish liquidation) | Price‑oracle and Payment‑oracle |
 | Cancellation | Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower | All bitcoin collateral is returned to the Borrower | Payment‑oracle |
 | Disaster | Oracles are not responsive | Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction | Borrower |
 
 
 ## Escrow Contract
 
-The escrow contract is a central part of the Firefish Protocol. It allows to lock bitcoin collateral on a specific multis-signature address and specifies the rules how this collateral can be spent.
+The escrow contract is a central part of the Firefish Protocol. It allows to lock bitcoin collateral on a specific multi-signature address and specifies the rules how this collateral can be spent.
 
 The first layer of the escrow contract is the escrow transaction (tx<sub>escrow</sub>). Its input is the Borrower's bitcoin (via the Prefund transaction defined below) and its output is a 3-of-3 multisig, with keys held by:
 - The Price Oracle
 - The Payment Oracle
-- The Borrower (Borrower's escrow key)
+- The Borrower (Borrower's escrow key called B-EPH)
 
 The output of the escrow transaction represents the escrow itself, and this is where the bitcoin is held during the loan.
 
-The second layer of the escrow contract is represented by a set of partially signed transactions (called closing transactions) spending bitcoin collateral from the escrow output either to Lender/Liquidator or Borrower, corresponding to possible outcomes of the loan. All these transactions are presigned by the Borrower (Borrower's escrow key), whose private key is then discarded. Discarding Borrower’s private key ensures that these pre-signed transactions become the only way to move the bitcoin collateral from the escrow, effectively locking all parties into the agreed-upon rules.
+The second layer of the escrow contract is represented by a set of partially signed transactions (called closing transactions) spending bitcoin collateral from the escrow output either to Lender/Liquidator or Borrower, corresponding to possible outcomes of the loan. All these transactions are presigned by the Borrower (Borrower's escrow key B-EPH), whose private key is then discarded (that explains the name B-EPH, meaning that this key is only ephemeral). Discarding Borrower’s private key ensures that these pre-signed transactions become the only way to move the bitcoin collateral from the escrow, effectively locking all parties into the agreed-upon rules.
+
+Besides being pre-signed by the Borrower, these closing transactions are pre-signed by the oracle that is not responsible for the corresponding loan outcome. Later, when some loan outcome happens, the responsible oracle confirms that by adding the last missing signature to the underlying closing transaction (making this transaction valid), and broadcasts this transaction to the bitcoin network. 
 
 ### Timelocks
-Some closing transactions use timelocks, ensuring that these transactions can only be used from a specific date in the future. Concretely
+Some closing transactions use timelocks, ensuring that these transactions can only be used from a specific date in the future. Concretely,
 - the closing transaction corresponding to Default has a timelock set to the maturity date, as a potential Default is evaluated not earlier than at the maturity date, and
 - the closing transaction corresponding to Disaster has a timelock set to one month after the maturity date, as an escrow is already spent at this time when oracles are responsive.
 
@@ -90,7 +73,7 @@ This construct makes it easy for Borrowers to interact with the Firefish protoco
 The prefund address represents the following spending condition:
 
 - 3-of-3 multisig (Borrower’s prefund key, Price Oracle, Payment Oracle), or
-- Borrower’s prefund key and a relative timelock of 7 days
+- Borrower’s prefund key and a relative timelock of 7 days.
 
 The first spending condition using the multisig is used to move bitcoin from prefund to escrow when all parties cooperate. 
 The second spending condition using only Borrower’s prefund key with a relative timelock works as a safeguard for the Borrower, should oracles become unresponsive or malicious during the contract setup.
@@ -103,15 +86,15 @@ The whole Firefish protocol, including prefund, escrow and closing transactions,
 
 ## Protocol Implementation
 
-The whole Firefish protocol is implemented in Rust. To simplify the interaction with the protocol for Borrowers, the Borrower's part, called borrower-client, is compiled into WASM and runs at app.firefish.io. The source code for the borrower-client is available HERE. It also contains instructions for deterministic builds, allowing Borrowers to verify that the client used at [Firefish](https://app.firefish.io) corresponds to the published source code. 
+The whole Firefish protocol is implemented in Rust. To simplify the interaction with the protocol for Borrowers, the Borrower's part, called borrower-client, is compiled into WASM and runs at [Firefish platform](https://app.firefish.io). The source code for the borrower-client is available [here](https://protocol.firefish.io ). It also contains instructions for deterministic builds, allowing Borrowers to verify that the client used at Firefish platform corresponds to the published source code. 
 
 ## The Process
 
 Below you can find the simplified process of the escrow setup and the lifetime of the loan. 
 
-1. The participants in the protocol securely exchange necessary data (such as loan details) and public keys.
-2. Borrower enters his return address where bitcoin collateral will be returned upon successful repayment
-3. Using the borrower-client, the Borrower generates the prefund address
+1. The participants in the protocol securely exchange necessary data (such as loan details) and public keys, everything via the Firefish platform.
+2. Borrower enters his return address where bitcoin collateral will be returned upon successful repayment.
+3. Using the borrower-client, the Borrower generates the prefund address.
 4. The Borrower sends bitcoin collateral to the prefund address using their own wallet.
 5. Using the borrower-client, the Borrower constructs the escrow and closing transactions, and adds their own signatures to the closing transactions.
 6. The oracles add their own signatures to the escrow transaction and the closing transactions according to the protocol specification.
@@ -119,7 +102,7 @@ Below you can find the simplified process of the escrow setup and the lifetime o
 8. Using the borrower-client, the Borrower discards their escrow private key, ensuring that the spending options for the escrow are limited to those defined by the closing transactions.
 9. Borrower broadcasts the now fully signed escrow transaction, effectively locking bitcoin collateral. The escrow is properly set.
 10. Lender sends funds (fiat or stablecoins) to the Borrower.
-11. Later, when the loan outcome is known (repayment, default, …), the corresponding transaction is signed and broadcast by the responsible oracle for the given outcome.
+11. Later, when the loan outcome is known (repayment, default, …), the corresponding transaction is signed and broadcast by the responsible oracle for the given outcome, effectively closing the loan.
 
 ## Key Benefits of Firefish Protocol
 
@@ -132,7 +115,7 @@ Below you can find the simplified process of the escrow setup and the lifetime o
 
 ## Potential Drawbacks of Firefish Protocol
 
-- As with any other bitcoin-backed lending protocol, some level of trust is required in the Oracles being honest. However, we believe that this need for trust can be minimized at the implementation level (for example, decentralizing the Price oracle, using DLCs, anonymization techniques used by the Payment oracle, etc.).
-- The contract cannot be canceled without the cooperation of the Oracle entities, even if the Lender and Borrower agree.
+- As with any other bitcoin-backed lending protocol, some level of trust is required in the oracles being honest. However, we believe that this need for trust can be minimized at the implementation level (for example, decentralizing the Price-oracle, using DLCs, anonymization techniques used by the Payment-oracle, etc.).
+- The contract cannot be canceled without the cooperation of the oracle entities, even if the Lender and Borrower agree.
 - The complexity of the proposed solution and the fact that the security and business advantages may not be immediately apparent.
 - The Lender (and Borrower) must have some level of trust in the Liquidator that they will return the funds/bitcoin in the case of liquidation and default. This can be minimized, for example, by the Liquidator providing some form of security or using DLCs.
