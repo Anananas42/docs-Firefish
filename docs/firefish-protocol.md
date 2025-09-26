@@ -6,62 +6,65 @@ sidebar_position: 3
 
 > This document outlines the technical design of the Firefish Protocol. Please note that the actual implementation—delivered through the Firefish application—may differ in certain aspects, as both the application and the underlying escrow system remain under active development. For the most accurate and up-to-date information on the current functionality and limitations of the Firefish Protocol, please refer to the [Terms of Service](/docs/legal/terms-of-service).
 
-:::info Key Features
-🔥 The Firefish Protocol enables the escrow of Bitcoin for peer-to-peer collateralized loans settled in fiat currency
-
-🔥 The protocol uses the scripting capabilities of bitcoin, such as multi-signature schemes and Partially Signed Bitcoin Transactions (PSBT)
-
-🔥 The goal of the protocol is to remove risk and trust requirements from the interaction between parties
-:::
-
-## Subjects of Firefish Protocol
-
-- **Borrower:** An individual or entity that owns bitcoin and seeks fiat liquidity.
-- **Lender:** An individual or entity that has excess fiat liquidity and wants to earn interest.
+## Participants in Firefish Protocol
+- **Borrower:** An individual or entity that owns bitcoin and seeks fiat or stablecoins liquidity.
+- **Lender:** An individual or entity that has excess fiat or stablecoins liquidity and wants to earn interest.
 - **Liquidator:** An entity entrusted by the Lender to liquidate the collateral in its name in the event that the Borrower does not fulfill its obligations. The Lender can also act as the Liquidator themselves.
-- **Price Oracle:** An Oracle that attests to the exchange rate of bitcoin. It can be implemented as a trusted institution, a public oracle, or a threshold of institutions and public oracles. Price Oracle is currently operated by Firefish.
-- **Payment Oracle:** An Oracle that attests to whether or not a fiat payment has been made (e.g. loan repayment). Payment Oracle is currently operated by Firefish.
+- **Price Oracle:** An Oracle that attests to the price of bitcoin. It can be implemented as a trusted institution, a public oracle, or a threshold of institutions and public oracles. Price Oracle is currently operated by Firefish.
+- **Payment Oracle:** An Oracle that attests to whether or not a funds transfer has been made (e.g. loan repayment). Payment Oracle is currently operated by Firefish.
 - **Firefish:** A platform that matches Borrowers and Lenders and facilitates their secure interaction.
+
+
+## Loan outcomes
+- **Repayment**
+  - Description: Loan successfully repaid
+  - Result: All bitcoin collateral is returned to the Borrower
+  - Trigger: Payment-oracle
+- **Default**
+  - Description: Loan not successfully repaid
+  - Result: Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower
+  - Trigger: Price-oracle
+- **Liquidation** 
+  - Description: Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value
+  - Result: All bitcoin collateral is sent to Lender (for self-liquidation) or Liaquidator (for Firefish liquidation)
+  - Trigger: Price-oracle and Payment-oracle
+- **Cancellation**
+  - Description: Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower
+  - Result: All bitcoin collateral is returned to the Borrower
+  - Trigger: Payment-oracle
+- **Disaster** 
+  - Description: Oracles are not responsive
+  - Result: Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction
+  - Trigger: Borrower
+
 
 ## Escrow Contract
 
-The escrow contract is a central part of the Firefish Protocol. It allows to lock bitcoin collateral on a specific address, and further actions with the collateral are only possible:
+The escrow contract is a central part of the Firefish Protocol. It allows to lock bitcoin collateral on a specific multis-signature address and specifies the rules how this collateral can be spent.
 
-- When certain conditions are met (such as loan repayment)
-- In a specific way (the contract output can only be directed to predetermined addresses)
-
-The escrow contract can be schematically represented as follows:
-
-The first layer of the escrow contract is the tx_escrow transaction. Its input is the Borrower's UTXO (Borrower's bitcoin) and its output is a 3-of-3 multisig, with keys held by:
-
+The first layer of the escrow contract is the escrow transaction (tx<sub>escrow</sub>). Its input is the Borrower's bitcoin (via the Prefund transaction defined below) and its output is a 3-of-3 multisig, with keys held by:
 - The Price Oracle
 - The Payment Oracle
-- The Borrower (ephemeral key), B-EPH
+- The Borrower (Borrower's escrow key)
+The output of the escrow transaction represents the escrow itself, and this is where the bitcoin is held during the loan.
 
-The output of the tx_escrow transaction represents the escrow itself, and this is where the bitcoin is held during the loan.
+The second layer of the escrow contract is represented by a set of partially signed transactions (called closing transactions) spending bitcoin collateral from the escrow output either to Lender/Liquidator or Borrower, corresponding to possible outcomes of the loan. All these transactions are presigned by the Borrower (Borrower's escrow key), whose private key is then discarded. Discarding Borrower’s private key ensures that these pre-signed transactions become the only way to move the bitcoin collateral from the escrow, effectively locking all parties into the agreed-upon rules.
 
-The second layer of the escrow contract is represented by set of partially signed transactions (PSBTs) that allow the output of the tx_escrow to be spent, i.e the collateral to be unlocked and sent to a predetermined address. This occurs when certain conditions are met (such as loan repayment) and the missing signatures are added to a PSBT.
+### Timelocks
+Some closing transactions use timelocks, ensuring that these transactions can only be used from a specific date in the future. Concretely
+- the closing transaction corresponding to Default has a timelock set to the maturity date, as a potential Default is evaluated not earlier than at the maturity date, and
+- the closing transaction corresponding to Disaster has a timelock set to one month after the maturity date, as an escrow is already spent at this time when oracles are responsive.
 
-The possible states of the escrow contract, represented by individual PSBTs, are:
+### Summary of closing transactions 
+There are at total five closing transactions:
 
-| Contract state | PSBT used | Description | Missing signature | Output to |
+| Loan outcome | Closing transaction | Missing signature | Output to | Timelock | 
 | --- | --- | --- | --- | --- |
-| Repayment | tx_repayment | Loan fully repaid on due date | Payment Oracle | Borrower -B |
-| Default | tx_default | Borrower failed to repay | Payment Oracle | Liquidator |
-| Liquidation | tx_liquidation | Insufficient collateral value | Price Oracle, Payment Oracle | Liquidator |
-| Cancellation | tx_repayment | Lender did not provide loan funds at all | Payment Oracle | Borrower -B |
-| Recovery | tx_recover | If Oracles or Platform do not cooperate or cease to exist, Borrower can recover the collateral after given timelock without interaction to other party | none, timelock is used | Borrower -B |
-
-:::info Key Management
-The Borrower uses two types of keys within the protocol:
-
-1. **B** represents a key pair fully controlled by the Borrower (such as stored on a hardware wallet). All outputs of the escrow designated for the Borrower are directed here.
-2. **B-EPH** represents an ephemeral key pair created in the Firefish app and used for signing during the contract setup. The keys are not needed after the setup is complete and are deleted.
-:::
-
-- All PSBTs are intended to be pre-signed before the tx_escrow transaction is broadcast by the Borrower, and the escrow is funded. This allows the Borrower to have control over all possible ways that the escrow contract can be spent.
-- In order to construct a transaction, you must know its inputs and outputs.
-- In this context, to construct the tx_escrow and PSBTs, you need to know the inputs of the tx_escrow, which are the Borrower's unspent UTXOs that they wish to use as collateral.
+| Repayment | tx<sub>repayment</sub> | Payment Oracle | Borrower| none |
+| Default | tx<sub>default</sub> | Payment Oracle | Liquidator | maturity date |
+| Liquidation | tx<sub>liquidation</sub> | Price Oracle, Payment Oracle | Lender/Liquidator | none |
+| Cancellation | tx<sub>repayment</sub> | Payment Oracle | Borrower| none |
+| Disaster | tx<sub>recover</sub> | none | Borrower| maturity date + 1 month |
 
 ## Prefund Contract
 
@@ -71,7 +74,7 @@ The extra on-chain transaction, called prefund transaction (tx<sub>prefund</sub>
 
 TODO
 
-This construct makes it easy for Borrowers to interact with the Firefish protocol. First, they send their bitcoin collateral to a specific prefund address (A_prefund), which allows to create the follow-up escrow and closing transactions. 
+This construct makes it easy for Borrowers to interact with the Firefish protocol. First, they send their bitcoin collateral to a specific prefund address (A<sub>prefund</sub>), which allows to create the follow-up escrow and closing transactions. 
 
 The prefund address represents the following spending condition:
 
