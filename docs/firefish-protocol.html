@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Firefish Resources" href="/docs-Firefish/opensearch.xml"><link rel="stylesheet" href="/docs-Firefish/assets/css/styles.d97df58c.css">
-<script src="/docs-Firefish/assets/js/runtime~main.601fbd6d.js" defer="defer"></script>
+<script src="/docs-Firefish/assets/js/runtime~main.70d1c10f.js" defer="defer"></script>
 <script src="/docs-Firefish/assets/js/main.867ddcc5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -86,7 +86,7 @@ The output of the escrow transaction represents the escrow itself, and this is w
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="summary-of-closing-transactions">Summary of closing transactions<a href="#summary-of-closing-transactions" class="hash-link" aria-label="Direct link to Summary of closing transactions" title="Direct link to Summary of closing transactions">​</a></h3>
 <p>There are at total five closing transactions:</p>
-<table><thead><tr><th>Loan outcome</th><th>Closing transaction</th><th>Missing signature</th><th>Output to</th><th>Timelock</th></tr></thead><tbody><tr><td>Repayment</td><td>tx<sub>repayment</sub></td><td>Payment Oracle</td><td>Borrower</td><td>none</td></tr><tr><td>Default</td><td>tx<sub>default</sub></td><td>Payment Oracle</td><td>Liquidator</td><td>maturity date</td></tr><tr><td>Liquidation</td><td>tx<sub>liquidation</sub></td><td>Price Oracle, Payment Oracle</td><td>Lender/Liquidator</td><td>none</td></tr><tr><td>Cancellation</td><td>tx<sub>repayment</sub></td><td>Payment Oracle</td><td>Borrower</td><td>none</td></tr><tr><td>Disaster</td><td>tx<sub>recover</sub></td><td>none</td><td>Borrower</td><td>maturity date + 1 month</td></tr></tbody></table>
+<table><thead><tr><th>Loan outcome</th><th>Closing transaction</th><th>Missing signature</th><th>Output to</th><th>Timelock</th></tr></thead><tbody><tr><td>Repayment</td><td>tx<sub>repayment</sub></td><td>Payment Oracle</td><td>Borrower</td><td>-</td></tr><tr><td>Default</td><td>tx<sub>default</sub></td><td>Payment Oracle</td><td>Liquidator</td><td>maturity date</td></tr><tr><td>Liquidation</td><td>tx<sub>liquidation</sub></td><td>Price Oracle, Payment Oracle</td><td>Lender/Liquidator</td><td>-</td></tr><tr><td>Cancellation</td><td>tx<sub>repayment</sub></td><td>Payment Oracle</td><td>Borrower</td><td>-</td></tr><tr><td>Disaster</td><td>tx<sub>recover</sub></td><td>-</td><td>Borrower</td><td>maturity date + 1 month</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prefund-contract">Prefund Contract<a href="#prefund-contract" class="hash-link" aria-label="Direct link to Prefund Contract" title="Direct link to Prefund Contract">​</a></h2>
 <p>To make it practical for Borrowers who use a variety of bitcoin infrastructure (hardware wallets, software wallets, custodial wallets), we propose using an extra on-chain transaction to consolidate and acknowledge the UTXOs that will be used to fund the escrow contract.</p>
 <p>The extra on-chain transaction, called prefund transaction (tx<sub>prefund</sub>), precedes the escrow transaction and can be schematically depicted as follows:</p>
