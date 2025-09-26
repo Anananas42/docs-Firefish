@@ -17,25 +17,25 @@ sidebar_position: 3
 
 ## Loan outcomes
 - **Repayment**
-  - Description: Loan successfully repaid
-  - Result: All bitcoin collateral is returned to the Borrower
-  - Trigger: Payment-oracle
+  - **Description:** Loan successfully repaid
+  - **Result:** All bitcoin collateral is returned to the Borrower
+  - **Trigger:** Payment-oracle
 - **Default**
-  - Description: Loan not successfully repaid
-  - Result: Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower
-  - Trigger: Price-oracle
+  - **Description:** Loan not successfully repaid
+  - **Result:** Bitcoin collateral is sent to the Liquidator (distribution escrow). Part of the collateral is used to cover the amount due (either in Bitcoin for self-liquidation or in loan currency for Firefish liquidation), the rest is returned back to Borrower
+  - **Trigger:** Price-oracle
 - **Liquidation** 
-  - Description: Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value
-  - Result: All bitcoin collateral is sent to Lender (for self-liquidation) or Liaquidator (for Firefish liquidation)
-  - Trigger: Price-oracle and Payment-oracle
+  - **Description:** Borrower’s collateral does not fully secure the loan anymore due to the decrease in its value
+  - **Result:** All bitcoin collateral is sent to Lender (for self-liquidation) or Liaquidator (for Firefish liquidation)
+  - **Trigger:** Price-oracle and Payment-oracle
 - **Cancellation**
-  - Description: Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower
-  - Result: All bitcoin collateral is returned to the Borrower
-  - Trigger: Payment-oracle
+  - **Description:** Borrower locked bitcoin into escrow but Lender did not provide loan funds to the Borrower
+  - **Result:** All bitcoin collateral is returned to the Borrower
+  - **Trigger:** Payment-oracle
 - **Disaster** 
-  - Description: Oracles are not responsive
-  - Result: Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction
-  - Trigger: Borrower
+  - **Description:** Oracles are not responsive
+  - **Result:** Borrower can rescue all bitcoin collateral from escrow one month after the maturity date via the recovery transaction
+  - **Trigger:** Borrower
 
 
 ## Escrow Contract
