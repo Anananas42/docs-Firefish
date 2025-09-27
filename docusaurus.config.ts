@@ -59,14 +59,6 @@ const config: Config = {
           routeBasePath: 'docs',
           editUrl: 'https://github.com/Anananas42/docs-Firefish/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl: 'https://github.com/Anananas42/docs-Firefish/tree/main/',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -81,7 +73,7 @@ const config: Config = {
         hashed: true,
         language: ['en', 'es', 'de', 'it', 'zh'],
         indexDocs: true,
-        indexBlog: true,
+        indexBlog: false,
         indexPages: false,
         searchBarShortcutKeymap: "mod+k",
       },
