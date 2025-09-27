@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.knowledgeHubSidebar.category.How it works": {
+    "message": "How it works",
+    "description": "The label for category How it works in sidebar knowledgeHubSidebar"
+  },
+  "sidebar.knowledgeHubSidebar.category.FAQ": {
+    "message": "FAQ",
+    "description": "The label for category FAQ in sidebar knowledgeHubSidebar"
+  },
+  "sidebar.knowledgeHubSidebar.category.Borrowing & Locking Bitcoin": {
+    "message": "Borrowing & Locking Bitcoin",
+    "description": "The label for category Borrowing & Locking Bitcoin in sidebar knowledgeHubSidebar"
+  },
+  "sidebar.knowledgeHubSidebar.doc.What is Firefish?": {
+    "message": "What is Firefish?",
+    "description": "The label for the doc item What is Firefish? in sidebar knowledgeHubSidebar, linking to the doc how-it-works/what-is-firefish"
+  },
+  "sidebar.knowledgeHubSidebar.doc.Firefish Protocol": {
+    "message": "Firefish Protocol",
+    "description": "The label for the doc item Firefish Protocol in sidebar knowledgeHubSidebar, linking to the doc firefish-protocol"
+  },
+  "sidebar.mediaInsightsSidebar.doc.Overview": {
+    "message": "Overview",
+    "description": "The label for the doc item Overview in sidebar mediaInsightsSidebar, linking to the doc media-insights"
+  },
+  "sidebar.legalSidebar.doc.Overview": {
+    "message": "Overview",
+    "description": "The label for the doc item Overview in sidebar legalSidebar, linking to the doc legal"
+  },
+  "sidebar.supportSidebar.doc.Support": {
+    "message": "Support",
+    "description": "The label for the doc item Support in sidebar supportSidebar, linking to the doc support"
+  }
+}

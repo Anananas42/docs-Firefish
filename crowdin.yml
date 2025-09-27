@@ -1,0 +1,34 @@
+project_id_env: CROWDIN_PROJECT_ID
+api_token_env: CROWDIN_TOKEN
+
+preserve_hierarchy: true
+
+files:
+  # Theme translations
+  - source: /i18n/en/code.json
+    translation: /i18n/%two_letters_code%/code.json
+
+  - source: /i18n/en/docusaurus-theme-classic/navbar.json
+    translation: /i18n/%two_letters_code%/docusaurus-theme-classic/navbar.json
+
+  - source: /i18n/en/docusaurus-theme-classic/footer.json
+    translation: /i18n/%two_letters_code%/docusaurus-theme-classic/footer.json
+
+  # Plugin translations
+  - source: /i18n/en/docusaurus-plugin-content-docs/current.json
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current.json
+
+  - source: /i18n/en/docusaurus-plugin-content-blog/options.json
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/options.json
+
+  # Document content translations
+  - source: /i18n/en/docusaurus-plugin-content-docs/current/**/*.md
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+
+  # Blog content translations (if any)
+  - source: /i18n/en/docusaurus-plugin-content-blog/**/*.md
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
+
+  # Documentation metadata
+  - source: /i18n/en/docusaurus-plugin-content-docs/current.json
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current.json
