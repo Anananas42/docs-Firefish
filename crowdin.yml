@@ -3,6 +3,11 @@ api_token_env: CROWDIN_API_KEY
 
 preserve_hierarchy: true
 
+# Language mapping for Chinese locale
+language_mapping:
+  locale:
+    zh-CN: zh
+
 files:
   # Theme translations
   - source: /i18n/en/code.json
