@@ -107,6 +107,25 @@ The `crowdin.yml` file defines:
 - `npm run crowdin:status` - Check translation status
 - `npm run crowdin:sync` - Full sync (write-translations + upload + download)
 
+## Automated GitHub Actions Workflow
+
+The repository now includes automated Crowdin integration:
+
+**Crowdin Sync Workflow** (`.github/workflows/crowdin.yml`):
+- **Triggers:** Push to main, manual trigger, daily at 6 AM UTC
+- **Actions:**
+  1. Updates translation templates
+  2. Syncs new docs to translation source
+  3. Uploads to Crowdin
+  4. Downloads latest translations
+  5. Commits translation updates if found
+  6. Triggers deployment
+
+**Deploy Workflow** (`.github/workflows/deploy.yml`):
+- **Updated:** Now builds all locales instead of English-only
+- **Triggers:** Push to main + after Crowdin workflow completes
+- **Result:** Live site includes all available translations
+
 ## Testing Translations
 
 Build the site to test all locales:
