@@ -64,7 +64,7 @@ There are at total five closing transactions:
 
 The escrow contract can be schematically depicted as follows:
 
-![Firefish protocol](./img/escrow.png)
+![Firefish protocol](/img/escrow.png)
 
 ## Prefund Contract
 
@@ -84,7 +84,7 @@ Once the Bitcoin is locked into prefund, all information is known to create the 
 
 The whole Firefish protocol, including prefund, escrow and closing transactions, can be schematically depicted as follows:
 
-![Firefish protocol](./img/prefund_and_escrow.png)
+![Firefish protocol](/img/prefund_and_escrow.png)
 
 ## Protocol Implementation
 
