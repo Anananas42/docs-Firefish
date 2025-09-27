@@ -67,10 +67,19 @@ i18n/
 │   │   ├── navbar.json
 │   │   └── footer.json
 │   ├── docusaurus-plugin-content-docs/
-│   │   └── current.json
+│   │   ├── current.json               # Metadata translations
+│   │   └── current/                   # 📄 SOURCE MARKDOWN FILES
+│   │       ├── how-it-works.md
+│   │       ├── firefish-protocol.md
+│   │       ├── faq/
+│   │       │   ├── general.md
+│   │       │   └── ...
+│   │       └── ... (all docs structure)
 │   └── docusaurus-plugin-content-blog/
 │       └── options.json
 ├── es/                                 # Spanish translations
+│   └── docusaurus-plugin-content-docs/
+│       └── current/                   # 📄 TRANSLATED MARKDOWN FILES
 ├── de/                                 # German translations
 ├── it/                                 # Italian translations
 ├── cs/                                 # Czech translations
@@ -118,10 +127,32 @@ Visit:
 - Czech: http://localhost:3000/docs-Firefish/cs/
 - Chinese: http://localhost:3000/docs-Firefish/zh-hant/
 
+## How Content Translation Works
+
+**Source Content:**
+- English documentation lives in `docs/` folder (original location)
+- Source files for Crowdin are in `i18n/en/docusaurus-plugin-content-docs/current/`
+- These are synchronized copies of your main documentation
+
+**Translation Process:**
+1. **Upload to Crowdin:** Markdown files go to Crowdin for translation
+2. **Translators work:** Translators see content in Crowdin's interface
+3. **Download translations:** Completed translations come back as markdown files
+4. **Build site:** Docusaurus automatically uses translated content
+
+**What Gets Translated:**
+- ✅ All markdown content (headings, paragraphs, lists, etc.)
+- ✅ UI elements (buttons, navigation, etc.)
+- ✅ Media insights overview page (describes the section)
+- ❌ Language-specific media insight pages (already in native languages)
+- ❌ Code blocks, file paths, and technical identifiers (preserved automatically)
+
 ## Notes
 
 - All documentation content starts in English (`docs/` folder)
+- Source files for translation are mirrored in `i18n/en/docusaurus-plugin-content-docs/current/`
 - Theme and UI translations are managed through JSON files
+- **Full markdown content translation is now configured and ready**
 - Crowdin handles the translation management interface
-- Translators work in Crowdin's web interface
-- Completed translations sync back to this repository
+- Translators work in Crowdin's web interface with markdown-aware editor
+- Completed translations sync back to this repository as translated markdown files

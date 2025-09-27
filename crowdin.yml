@@ -21,14 +21,19 @@ files:
   - source: /i18n/en/docusaurus-plugin-content-blog/options.json
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/options.json
 
-  # Document content translations
+  # Document content translations (excluding media-insights language-specific pages)
   - source: /i18n/en/docusaurus-plugin-content-docs/current/**/*.md
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+    ignore:
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/spanish.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/italian.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/hungarian.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/german.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/french.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/english.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/dutch.md
+      - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/czech-slovak.md
 
   # Blog content translations (if any)
   - source: /i18n/en/docusaurus-plugin-content-blog/**/*.md
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
-
-  # Documentation metadata
-  - source: /i18n/en/docusaurus-plugin-content-docs/current.json
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current.json
