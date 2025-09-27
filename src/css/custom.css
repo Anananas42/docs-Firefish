@@ -21,10 +21,31 @@
 [data-theme='dark'] {
   --ifm-color-primary: #FF6B6B;
   --ifm-color-primary-dark: #FF4F4F;
-  --ifm-color-primary-darker: #FF3333;
-  --ifm-color-primary-darkest: #FF0000;
+  --ifm-color-primary-darker: #CC0000;
+  --ifm-color-primary-darkest: #990000;
   --ifm-color-primary-light: #FF8787;
   --ifm-color-primary-lighter: #FFA3A3;
   --ifm-color-primary-lightest: #FFCFCF;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode hero banner text contrast */
+[data-theme='dark'] .hero--primary .hero__title {
+  color: white !important;
+}
+
+[data-theme='dark'] .hero--primary .hero__subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Dark mode FAQ button visibility */
+[data-theme='dark'] .hero--primary .button--tertiary {
+  color: white !important;
+  border-color: white !important;
+  background-color: transparent !important;
+}
+
+[data-theme='dark'] .hero--primary .button--tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
 }
