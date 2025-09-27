@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_firefish=self.webpackChunkdocs_firefish||[]).push([[5831],{5494:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/docs-Firefish/zh-Hant/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

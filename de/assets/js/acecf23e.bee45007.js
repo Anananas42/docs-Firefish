@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_firefish=self.webpackChunkdocs_firefish||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/docs-Firefish/de/blog","blogTitle":"Blog","authorsListPath":"/docs-Firefish/de/blog/authors"}')}}]);

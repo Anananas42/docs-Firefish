@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_firefish=self.webpackChunkdocs_firefish||[]).push([[1235],{8552:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
