@@ -56,7 +56,7 @@
     "description": "The label of footer link with label=Firefish Protocol linking to /docs/firefish-protocol"
   },
   "link.item.label.Support": {
-    "message": "Support",
+    "message": "Podpora",
     "description": "The label of footer link with label=Support linking to /docs/support"
   },
   "link.item.label.Legal Overview": {
