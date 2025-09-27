@@ -34,6 +34,3 @@ files:
       - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/dutch.md
       - /i18n/en/docusaurus-plugin-content-docs/current/media-insights/czech-slovak.md
 
-  # Blog content translations (if any)
-  - source: /i18n/en/docusaurus-plugin-content-blog/**/*.md
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
