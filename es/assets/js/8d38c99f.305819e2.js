@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs_firefish=self.webpackChunkdocs_firefish||[]).push([[2987],{7313:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/docs-Firefish/es/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
