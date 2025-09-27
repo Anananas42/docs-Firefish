@@ -1,18 +1,9 @@
 name: DocSearch Indexing (Disabled)
 
-# Workflow disabled - remove this comment to re-enable
-# on:
-#   # Run after successful GitHub Pages deployment
-#   workflow_run:
-#     workflows: ["Deploy to GitHub Pages"]
-#     types:
-#       - completed
-#   # Allow manual trigger
-#   workflow_dispatch:
-#   # Also run when deployment branch is pushed (backup trigger)
-#   push:
-#     branches:
-#       - deployment
+# Workflow disabled - only manual trigger available
+on:
+  # Manual trigger only (workflow effectively disabled)
+  workflow_dispatch:
 
 jobs:
   algolia-index:
