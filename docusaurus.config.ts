@@ -74,20 +74,22 @@ const config: Config = {
     ],
   ],
 
-  themeConfig: {
-    metadata: [
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
-        name: 'algolia-site-verification',
-        content: '199DC04FB859E1F7',
+        hashed: true,
+        language: ['en', 'es', 'de', 'it', 'cs', 'zh'],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: false,
+        searchBarShortcutKeymap: "mod+k",
       },
     ],
-    algolia: {
-      appId: '68W48A2WHL',
-      apiKey: '5c5ba67215c57c58f555c068890f029b',
-      indexName: 'firefish-docs',
-      contextualSearch: true,
-      searchPagePath: 'search',
-    },
+  ],
+
+  themeConfig: {
+    metadata: [],
     image: 'img/firefish-social-card.jpg',
     navbar: {
       title: 'Firefish Resources',
