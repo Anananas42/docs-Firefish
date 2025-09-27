@@ -28,7 +28,7 @@
     "description": "Navbar item with label Legal"
   },
   "item.label.Support": {
-    "message": "Support",
+    "message": "Podpora",
     "description": "Navbar item with label Support"
   }
 }
