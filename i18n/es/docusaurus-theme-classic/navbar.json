@@ -18,5 +18,21 @@
   "item.label.Main Website": {
     "message": "Main Website",
     "description": "Navbar item with label Main Website"
+  },
+  "item.label.Knowledge Hub": {
+    "message": "Knowledge Hub",
+    "description": "Navbar item with label Knowledge Hub"
+  },
+  "item.label.Media & Insights": {
+    "message": "Media & Insights",
+    "description": "Navbar item with label Media & Insights"
+  },
+  "item.label.Legal": {
+    "message": "Legal",
+    "description": "Navbar item with label Legal"
+  },
+  "item.label.Support": {
+    "message": "Support",
+    "description": "Navbar item with label Support"
   }
 }
